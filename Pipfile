@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 requests = "*"
 mlb-statsapi = "*"
+pandas = "*"
 
 [dev-packages]
 

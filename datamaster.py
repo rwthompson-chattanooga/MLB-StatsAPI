@@ -1,9 +1,12 @@
 import pandas as pd
 from pathlib import Path
+import glob
 
 base_path = Path(__file__).parent
-file_path = base_path / "data" / "gl2002.txt"
+print(base_path)
+file_list = list(base_path.glob('data/*.txt'))
+#print(file_list)
 
-maindata = pd.read_csv(file_path)
-print(maindata.head())
+maindata = pd.concat((pd.read_csv(f) for f in file_list), ignore_index=True)
+#print(maindata.head())
 print(len(maindata))
