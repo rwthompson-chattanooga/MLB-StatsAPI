@@ -1,3 +1,17 @@
+"""
+Docstring for datamaster
+
+This isn't really a docstring but ...
+
+The purpose of this code is to concatenate the game logs download
+from retrosheet into one master file. 
+
+The master file has a heading row and contains game data for every game in MLB
+for the 2002-2025 seasons, with the exception of the 2020 season.
+
+The ultimate goal is to use this data for analytically decision making on the Kalshi platform.
+"""
+
 import pandas as pd
 from pathlib import Path
 import glob
@@ -9,4 +23,5 @@ file_list = list(base_path.glob('data/*.txt'))
 
 maindata = pd.concat((pd.read_csv(f) for f in file_list), ignore_index=True)
 #print(maindata.head())
-print(len(maindata))
+#print(len(maindata))
+#print(maindata.iloc[0:5,0:12])
