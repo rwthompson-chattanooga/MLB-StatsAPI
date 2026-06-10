@@ -20,17 +20,11 @@ base_path = Path(__file__).parent
 
 print(base_path)
 
-#file_list = list(base_path.glob('data/*.txt'))
-#print(file_list)
+game_results = pd.read_csv(base_path/'data'/"gl2002.txt")
 
-#maindata = pd.concat((pd.read_csv(f) for f in file_list), ignore_index=True)
-#print(maindata.head())
-#print(len(maindata))
-#print(maindata.iloc[0:5,0:12])
+#print(game_results.shape)
 
-game_results = pd.DataFrame()
-#concat(pd.read_csv(base_path/'data'/'gl2002.txt'))
-#print(game_result_score_only.info())
+teams_and_score = game_results.iloc[:, [3, 6, 9, 10]]
+teams_and_score.columns = ["Visiting Team", "Home Team", "Visitor Score", "Home Score"]
 
-#for file in file_list:
-#    game_result_score_only = pd.concat(pd.read_csv(file)[:])
+print(teams_and_score.head())
